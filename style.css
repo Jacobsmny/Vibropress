@@ -13,80 +13,96 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 header {
-    background-color: #002144; /* Синий цвет */
+    background-color: #007BFF; /* Синий цвет */
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     max-width: 150px; /* Увеличенный размер логотипа */
+    width: 100%;
+    height: auto;
 }
 
 h1 {
     margin: 20px 0;
-    font-size: 36px;
+    font-size: 2rem;
     color: #0056b3; /* Темно-синий цвет */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Новый стиль поиска и фильтрации */
 .search-filter {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-bar {
+    flex: 1 1 300px;
+    margin-bottom: 10px;
 }
 
 .search-bar input {
     padding: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-right: 10px;
 }
 
 .filter-sort {
     display: flex;
     align-items: center;
+    flex: 1 1 200px;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .filter-sort select {
     padding: 10px;
-    font-size: 16px;
-    margin-left: 10px;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Контейнер с заказами */
 .container {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
+    max-width: 1200px;
     background-color: #fff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .orders-column {
-    width: 48%;
+    flex: 1 1 45%;
     padding: 20px;
     background-color: #e6f2ff; /* Светло-голубой фон */
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    min-width: 280px;
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #007BFF; /* Синий цвет */
     margin-bottom: 15px;
     border-bottom: 2px solid #007BFF;
@@ -122,7 +138,7 @@ h1 {
     background-color: transparent;
     border: none;
     color: #007BFF; /* Синий цвет */
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     transition: color 0.3s;
 }
@@ -177,7 +193,7 @@ h1 {
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -208,13 +224,14 @@ h1 {
     justify-content: center;
     align-items: center;
     animation: fadeIn 0.3s ease;
+    padding: 10px;
 }
 
 .modal-content {
     background-color: #fff;
     padding: 30px;
     border-radius: 20px;
-    width: 50%;
+    width: 100%;
     max-width: 500px; /* Увеличенная ширина модального окна */
     text-align: center;
     position: relative;
@@ -226,7 +243,7 @@ h1 {
     position: absolute;
     top: 10px;
     right: 15px;
-    font-size: 24px;
+    font-size: 1.5rem;
     cursor: pointer;
     color: #007BFF; /* Синий цвет */
     transition: color 0.3s;
@@ -240,7 +257,7 @@ h1 {
 .order-info {
     margin-bottom: 20px;
     text-align: left;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .order-info strong {
@@ -257,7 +274,7 @@ h1 {
 }
 
 .form-group label {
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-bottom: 5px;
 }
 
@@ -265,7 +282,7 @@ h1 {
 .form-group textarea, 
 .form-group select {
     padding: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
@@ -278,7 +295,7 @@ textarea {
 
 button.btn {
     padding: 12px;
-    font-size: 18px;
+    font-size: 1rem;
     background-color: #007BFF; /* Синий цвет */
     color: white;
     border: none;
@@ -314,23 +331,95 @@ button.btn:hover {
 }
 
 /* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-    .container {
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .search-filter {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+    }
+
+    .filter-sort {
+        justify-content: space-between;
+        flex: 1 1 100%;
     }
 
     .orders-column {
-        width: 100%;
-        margin-bottom: 20px;
+        flex: 1 1 100%;
     }
 
     .modal-content {
-        width: 90%;
-        max-width: none;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .filter-sort {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-sort select {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .orders-column {
+        flex: 1 1 100%;
+    }
+
+    .order-info {
+        font-size: 0.9rem;
     }
 
     .btn {
-        max-width: 100%;
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-bar input {
+        font-size: 0.9rem;
+    }
+
+    .filter-sort select {
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+        font-size: 0.9rem;
+    }
+
+    .order-info {
+        font-size: 0.85rem;
+    }
+
+    button.btn {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 20px;
     }
 }
